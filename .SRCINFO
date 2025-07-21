@@ -1,0 +1,11 @@
+pkgbase = usbblock
+	pkgdesc = Manage USB mass storage blocking via udev
+	pkgver = 1.0
+	pkgrel = 1
+	install = usbblock.install
+	arch = any
+	license = MIT
+	source = usbblock.sh
+	md5sums = SKIP
+
+pkgname = usbblock

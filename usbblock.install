@@ -1,0 +1,21 @@
+post_install() {
+    RULE_PATH="/etc/udev/rules.d/90-usb-block.rules"
+
+    if [[ -f "$RULE_PATH" ]]; then
+        echo "usbblock already installed. Rule file exists."
+    else
+        echo "Creating empty udev rule file..."
+        touch "$RULE_PATH"
+    fi
+
+    echo "Reloading udev rules..."
+    udevadm control --reload-rules
+    udevadm trigger
+}
+
+post_remove() {
+    echo "Reloading udev rules after uninstall..."
+    udevadm control --reload-rules
+    udevadm trigger
+}
+
